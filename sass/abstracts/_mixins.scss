@@ -1,0 +1,43 @@
+@mixin clearfix{
+    &::after{
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+@mixin absCenter{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+
+//MEDIA QUERY MANAGER
+// 0 - 600px ; phone
+//600px - 900px ; tablet-port
+//900px - 1200px ; tablet-land
+//[1200px - 1800px] ; regular style screen
+//*1800px ; big screen
+
+//$breakpoint arguments can be :
+// - phone
+// - tablet-port
+// - tablet-land
+// - big-screen
+
+// 1em = 16px
+@mixin respond($breakpoint){
+    @if $breakpoint == phone
+    {
+        @media (max-width:37.5em){ @content }; //600px
+    }
+    @if $breakpoint == tablet-port{
+        @media (max-width:56.25em){ @content }; //900px
+    }
+    @if $breakpoint == tablet-land{
+        @media (max-width:75em){ @content }; //1200px
+    }
+    @if $breakpoint == big-screen{
+        @media (min-width:112.5em){ @content }; //1800px
+    }
+}

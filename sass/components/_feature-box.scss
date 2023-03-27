@@ -1,0 +1,25 @@
+.feature-box{
+    background-color: $color-white;
+    padding:2.5rem;
+    text-align: center;
+    font-size:1.5rem;
+    border-radius:.3rem;
+    box-shadow: 0 1.5rem 4rem rgba($color-black,.15);
+    transition: all .2s;
+    @include respond(tablet-port){
+        padding:2rem;
+    }
+    &_logo{
+        font-size:6rem;
+        background-image: linear-gradient(to right, $color-primary-light,$color-primary-dark);
+        display:inline-block;
+        -webkit-background-clip: text;
+        color:transparent;
+        margin-bottom: .5rem;
+    }
+    &:hover{
+        cursor: pointer;
+        transform: translateY(-20px) scale(1.10);
+    }
+
+}
